@@ -1,0 +1,6 @@
+/*
+ * Pixastic Lib - Crop - v0.1.1
+ * Copyright (c) 2008-2009 Jacob Seidelin, jseidelin@nihilogic.dk, http://blog.nihilogic.dk/
+ * License: [http://www.pixastic.com/lib/license.txt]
+ */
+Pixastic.Actions.crop={process:function(e){if(Pixastic.Client.hasCanvas()){var t=e.options.rect,n=t.width,r=t.height,i=t.top,s=t.left;typeof e.options.left!="undefined"&&(s=parseInt(e.options.left,10)),typeof e.options.top!="undefined"&&(i=parseInt(e.options.top,10)),typeof e.options.height!="undefined"&&(n=parseInt(e.options.width,10)),typeof e.options.height!="undefined"&&(r=parseInt(e.options.height,10)),s<0&&(s=0),s>e.width-1&&(s=e.width-1),i<0&&(i=0),i>e.height-1&&(i=e.height-1),n<1&&(n=1),s+n>e.width&&(n=e.width-s),r<1&&(r=1),i+r>e.height&&(r=e.height-i);var o=document.createElement("canvas");return o.width=e.width,o.height=e.height,o.getContext("2d").drawImage(e.canvas,0,0),e.canvas.width=n,e.canvas.height=r,e.canvas.getContext("2d").clearRect(0,0,n,r),e.canvas.getContext("2d").drawImage(o,s,i,n,r,0,0,n,r),e.useData=!1,!0}},checkSupport:function(){return Pixastic.Client.hasCanvas()}};

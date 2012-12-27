@@ -1,0 +1,6 @@
+/*
+ * Pixastic Lib - Histogram - v0.1.0
+ * Copyright (c) 2008 Jacob Seidelin, jseidelin@nihilogic.dk, http://blog.nihilogic.dk/
+ * License: [http://www.pixastic.com/lib/license.txt]
+ */
+Pixastic.Actions.colorhistogram={array256:function(e){arr=[];for(var t=0;t<256;t++)arr[t]=e;return arr},process:function(e){var t=[];typeof e.options.returnValue!="object"&&(e.options.returnValue={rvals:[],gvals:[],bvals:[]});var n=!!e.options.paint,r=e.options.returnValue;typeof r.values!="array"&&(r.rvals=[],r.gvals=[],r.bvals=[]);if(Pixastic.Client.hasCanvasImageData()){var i=Pixastic.prepareData(e);e.useData=!1;var s=this.array256(0),o=this.array256(0),u=this.array256(0),a=e.options.rect,f=a.width*a.height,l=f*4;while(f--)s[i[l-=4]]++,o[i[l+1]]++,u[i[l+2]]++;r.rvals=s,r.gvals=o,r.bvals=u;if(n){var c=e.canvas.getContext("2d"),h=[s,o,u];for(var p=0;p<3;p++){var d=(p+1)*e.height/3,v=0;for(var m=0;m<256;m++)h[p][m]>v&&(v=h[p][m]);var g=e.height/3/v,y=e.width/256;p==0?c.fillStyle="rgba(255,0,0,0.5)":p==1?c.fillStyle="rgba(0,255,0,0.5)":p==2&&(c.fillStyle="rgba(0,0,255,0.5)");for(var m=0;m<256;m++)c.fillRect(m*y,e.height-g*h[p][m]-e.height+d,y,h[p][m]*g)}}return!0}},checkSupport:function(){return Pixastic.Client.hasCanvasImageData()}};

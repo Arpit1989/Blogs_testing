@@ -1,0 +1,6 @@
+/*
+ * Pixastic Lib - Histogram - v0.1.1
+ * Copyright (c) 2008 Jacob Seidelin, jseidelin@nihilogic.dk, http://blog.nihilogic.dk/
+ * License: [http://www.pixastic.com/lib/license.txt]
+ */
+Pixastic.Actions.histogram={process:function(e){var t=!!e.options.average&&e.options.average!="false",n=!!e.options.paint&&e.options.paint!="false",r=e.options.color||"rgba(255,255,255,0.5)",i=[];typeof e.options.returnValue!="object"&&(e.options.returnValue={values:[]});var s=e.options.returnValue;typeof s.values!="array"&&(s.values=[]),i=s.values;if(Pixastic.Client.hasCanvasImageData()){var o=Pixastic.prepareData(e);e.useData=!1;for(var u=0;u<256;u++)i[u]=0;var a=e.options.rect,f=a.width*a.height,l=f*4,c=l+1,h=l+2,p=l+3,d=Math.round;if(t)while(f--)i[d((o[l-=4]+o[l+1]+o[l+2])/3)]++;else while(f--)i[d(o[l-=4]*.3+o[l+1]*.59+o[l+2]*.11)]++;if(n){var v=0;for(var u=0;u<256;u++)i[u]>v&&(v=i[u]);var m=e.height/v,g=e.width/256,y=e.canvas.getContext("2d");y.fillStyle=r;for(var u=0;u<256;u++)y.fillRect(u*g,e.height-m*i[u],g,i[u]*m)}return s.values=i,!0}},checkSupport:function(){return Pixastic.Client.hasCanvasImageData()}};

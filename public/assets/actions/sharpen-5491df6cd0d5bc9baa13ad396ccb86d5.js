@@ -1,0 +1,6 @@
+/*
+ * Pixastic Lib - Sharpen filter - v0.1.0
+ * Copyright (c) 2008 Jacob Seidelin, jseidelin@nihilogic.dk, http://blog.nihilogic.dk/
+ * License: [http://www.pixastic.com/lib/license.txt]
+ */
+Pixastic.Actions.sharpen={process:function(e){var t=0;typeof e.options.amount!="undefined"&&(t=parseFloat(e.options.amount)||0),t<0&&(t=0),t>1&&(t=1);if(Pixastic.Client.hasCanvasImageData()){var n=Pixastic.prepareData(e),r=Pixastic.prepareData(e,!0),i=15,s=1+3*t,o=[[0,-s,0],[-s,i,-s],[0,-s,0]],u=0;for(var a=0;a<3;a++)for(var f=0;f<3;f++)u+=o[a][f];u=1/u;var l=e.options.rect,c=l.width,h=l.height;i*=u,s*=u;var p=c*4,d=h;do{var v=(d-1)*p,m=d==h?d-1:d,g=d==1?0:d-2,y=g*p,b=m*p,w=c;do{var E=v+(w*4-4),S=y+(w==1?0:w-2)*4,x=b+(w==c?w-1:w)*4,T=(-r[S]-r[E-4]-r[E+4]-r[x])*s+r[E]*i,N=(-r[S+1]-r[E-3]-r[E+5]-r[x+1])*s+r[E+1]*i,C=(-r[S+2]-r[E-2]-r[E+6]-r[x+2])*s+r[E+2]*i;T<0&&(T=0),N<0&&(N=0),C<0&&(C=0),T>255&&(T=255),N>255&&(N=255),C>255&&(C=255),n[E]=T,n[E+1]=N,n[E+2]=C}while(--w)}while(--d);return!0}},checkSupport:function(){return Pixastic.Client.hasCanvasImageData()}};

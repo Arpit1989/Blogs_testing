@@ -1,0 +1,6 @@
+/*
+ * Pixastic Lib - Noise filter - v0.1.0
+ * Copyright (c) 2008 Jacob Seidelin, jseidelin@nihilogic.dk, http://blog.nihilogic.dk/
+ * License: [http://www.pixastic.com/lib/license.txt]
+ */
+Pixastic.Actions.noise={process:function(e){var t=0,n=0,r=!1;typeof e.options.amount!="undefined"&&(t=parseFloat(e.options.amount)||0),typeof e.options.strength!="undefined"&&(n=parseFloat(e.options.strength)||0),typeof e.options.mono!="undefined"&&(r=!!e.options.mono&&e.options.mono!="false"),t=Math.max(0,Math.min(1,t)),n=Math.max(0,Math.min(1,n));var i=128*n,s=i/2;if(Pixastic.Client.hasCanvasImageData()){var o=Pixastic.prepareData(e),u=e.options.rect,a=u.width,f=u.height,l=a*4,c=f,h=Math.random;do{var p=(c-1)*l,d=a;do{var v=p+(d-1)*4;if(h()<t){if(r)var m=-s+h()*i,g=o[v]+m,y=o[v+1]+m,b=o[v+2]+m;else var g=o[v]-s+h()*i,y=o[v+1]-s+h()*i,b=o[v+2]-s+h()*i;g<0&&(g=0),y<0&&(y=0),b<0&&(b=0),g>255&&(g=255),y>255&&(y=255),b>255&&(b=255),o[v]=g,o[v+1]=y,o[v+2]=b}}while(--d)}while(--c);return!0}},checkSupport:function(){return Pixastic.Client.hasCanvasImageData()}};

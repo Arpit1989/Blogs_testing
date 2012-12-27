@@ -1,0 +1,2 @@
+module BlogAddressesHelper
+end

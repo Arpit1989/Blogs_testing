@@ -1,0 +1,6 @@
+/*
+ * Pixastic Lib - Blur Fast - v0.1.1
+ * Copyright (c) 2008 Jacob Seidelin, jseidelin@nihilogic.dk, http://blog.nihilogic.dk/
+ * License: [http://www.pixastic.com/lib/license.txt]
+ */
+Pixastic.Actions.blurfast={process:function(e){var t=parseFloat(e.options.amount)||0,n=!!e.options.clear&&e.options.clear!="false";t=Math.max(0,Math.min(5,t));if(Pixastic.Client.hasCanvas()){var r=e.options.rect,i=e.canvas.getContext("2d");i.save(),i.beginPath(),i.rect(r.left,r.top,r.width,r.height),i.clip();var s=2,o=Math.round(e.width/s),u=Math.round(e.height/s),a=document.createElement("canvas");a.width=o,a.height=u;var n=!1,f=Math.round(t*20),l=a.getContext("2d");for(var c=0;c<f;c++){var h=Math.max(1,Math.round(o-c)),p=Math.max(1,Math.round(u-c));l.clearRect(0,0,o,u),l.drawImage(e.canvas,0,0,e.width,e.height,0,0,h,p),n&&i.clearRect(r.left,r.top,r.width,r.height),i.drawImage(a,0,0,h,p,0,0,e.width,e.height)}return i.restore(),e.useData=!1,!0}if(Pixastic.Client.isIE()){var d=10*t;e.image.style.filter+=" progid:DXImageTransform.Microsoft.Blur(pixelradius="+d+")";if(e.options.fixMargin||1)e.image.style.marginLeft=(parseInt(e.image.style.marginLeft,10)||0)-Math.round(d)+"px",e.image.style.marginTop=(parseInt(e.image.style.marginTop,10)||0)-Math.round(d)+"px";return!0}},checkSupport:function(){return Pixastic.Client.hasCanvas()||Pixastic.Client.isIE()}};

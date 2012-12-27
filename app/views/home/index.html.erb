@@ -1,0 +1,20 @@
+
+
+	          <h3>Home</h3>
+<% @users.each do |u| %>
+  <p>User: <%=u.name%></p>
+ <%end%>  
+	      
+	        <div class="container">
+	            <div class="slides">
+	            	<%= image_tag("pic1.jpg", :alt => "rss feed") %> 
+	                <%= image_tag("pic2.jpg", :alt => "rss feed") %> 
+	                <%= image_tag("pic3.jpg", :alt => "rss feed") %> 
+	                <%= image_tag("pic4.jpg", :alt => "rss feed") %> 
+	                <%= image_tag("pic5.jpg", :alt => "rss feed") %> 
+	                <%= image_tag("pic6.jpg", :alt => "rss feed") %> 
+	                <%= image_tag("pic7.jpg", :alt => "rss feed") %> 
+	                
+	            </div>
+	            <canvas id="slideshow" width="750" height="300"></canvas>
+	        </div>

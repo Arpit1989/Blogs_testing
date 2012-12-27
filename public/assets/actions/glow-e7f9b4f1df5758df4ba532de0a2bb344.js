@@ -1,0 +1,6 @@
+/*
+ * Pixastic Lib - Glow - v0.1.0
+ * Copyright (c) 2008 Jacob Seidelin, jseidelin@nihilogic.dk, http://blog.nihilogic.dk/
+ * License: [http://www.pixastic.com/lib/license.txt]
+ */
+Pixastic.Actions.glow={process:function(e){var t=parseFloat(e.options.amount)||0,n=parseFloat(e.options.radius)||0;t=Math.min(1,Math.max(0,t)),n=Math.min(5,Math.max(0,n));if(Pixastic.Client.hasCanvasImageData()){var r=e.options.rect,i=document.createElement("canvas");i.width=e.width,i.height=e.height;var s=i.getContext("2d");s.drawImage(e.canvas,0,0);var o=2,u=Math.round(e.width/o),a=Math.round(e.height/o),f=document.createElement("canvas");f.width=u,f.height=a;var l=!0,c=Math.round(n*20),h=f.getContext("2d");for(var p=0;p<c;p++){var d=Math.max(1,Math.round(u-p)),v=Math.max(1,Math.round(a-p));h.clearRect(0,0,u,a),h.drawImage(i,0,0,e.width,e.height,0,0,d,v),s.clearRect(0,0,e.width,e.height),s.drawImage(f,0,0,d,v,0,0,e.width,e.height)}var m=Pixastic.prepareData(e),g=Pixastic.prepareData({canvas:i,options:e.options}),y=r.width*r.height,b=y*4,w=b+1,E=b+2,S=b+3;while(y--)(m[b-=4]+=t*g[b])>255&&(m[b]=255),(m[w-=4]+=t*g[w])>255&&(m[w]=255),(m[E-=4]+=t*g[E])>255&&(m[E]=255);return!0}},checkSupport:function(){return Pixastic.Client.hasCanvasImageData()}};

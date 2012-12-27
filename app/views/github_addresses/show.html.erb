@@ -1,0 +1,31 @@
+
+
+<p>
+  <b>Githubadd:</b>
+  <a href =<%= @github_address.githubadd %> ><%= @github_address.githubadd %> </a>
+</p>
+<h2>Projects</h2>
+<% @github_address.projects.each do |c| %>
+  <p>
+    <b>Project:</b>
+    <a href = <%= c.projecturl %> ><%= c.projecturl %> </a>
+  </p>
+ 
+  <% end %>
+
+<h3>Add a Projects:</h3>
+<%= form_for([@github_address, @github_address.projects.build]) do |f| %>
+  <div class="field">
+    <%= f.label :projecturl %><br />
+    <%= f.text_field :projecturl %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+
+<%= link_to 'Edit', edit_github_address_path(@github_address) %> |
+<%= link_to 'Back', github_addresses_path %>

@@ -1,0 +1,6 @@
+/*
+ * Pixastic Lib - Edge detection filter - v0.1.1
+ * Copyright (c) 2008 Jacob Seidelin, jseidelin@nihilogic.dk, http://blog.nihilogic.dk/
+ * License: [http://www.pixastic.com/lib/license.txt]
+ */
+Pixastic.Actions.edges={process:function(e){var t=!!e.options.mono&&e.options.mono!="false",n=!!e.options.invert&&e.options.invert!="false";if(Pixastic.Client.hasCanvasImageData()){var r=Pixastic.prepareData(e),i=Pixastic.prepareData(e,!0),s=-1/8,o=[[s,s,s],[s,1,s],[s,s,s]];weight=1/s;var u=e.options.rect,a=u.width,f=u.height,l=a*4,c=f;do{var h=(c-1)*l,p=c==f?c-1:c,d=c==1?0:c-2,v=d*a*4,m=p*a*4,g=a;do{var y=h+(g*4-4),b=v+(g==1?0:g-2)*4,w=m+(g==a?g-1:g)*4,E=((i[b-4]+i[b]+i[b+4]+i[y-4]+i[y+4]+i[w-4]+i[w]+i[w+4])*s+i[y])*weight,S=((i[b-3]+i[b+1]+i[b+5]+i[y-3]+i[y+5]+i[w-3]+i[w+1]+i[w+5])*s+i[y+1])*weight,x=((i[b-2]+i[b+2]+i[b+6]+i[y-2]+i[y+6]+i[w-2]+i[w+2]+i[w+6])*s+i[y+2])*weight;if(t){var T=E*.3+S*.59+x*.11||0;n&&(T=255-T),T<0&&(T=0),T>255&&(T=255),E=S=x=T}else n&&(E=255-E,S=255-S,x=255-x),E<0&&(E=0),S<0&&(S=0),x<0&&(x=0),E>255&&(E=255),S>255&&(S=255),x>255&&(x=255);r[y]=E,r[y+1]=S,r[y+2]=x}while(--g)}while(--c);return!0}},checkSupport:function(){return Pixastic.Client.hasCanvasImageData()}};
