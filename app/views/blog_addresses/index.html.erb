@@ -1,18 +1,18 @@
-<h2>Listing Blog Addresses</h2>
+<h2 class="text-info">Listing Blog Addresses</h2>
 
-<table>
+<table class="table span8 table-hover table-nonfluid table-layout: fixed; table-condensed">
   <tr>
-    <th>Blog Address</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th class="text-error" style="width: 1%">Blog Address</th>
+    <th class="text-error" style="width: 1%">User</th>
+    <th class="text-error" style="width: 1%"></th>
+    <th class="text-error" style="width: 1%"></th>
+    <th class="text-error" style="width: 1%"></th>
   </tr>
 
 <% @blog_addresses.each do |blog_address| %>
   <tr>
-    <td><a href = <%= blog_address.blogadd %>><%= blog_address.blogadd.first(40) %></a></td>
-    <td><%= current_user.name %></td>
+    <td><a href = <%= blog_address.blogadd %>><%= blog_address.blogadd.first(30) %></a></td>
+    <td class="text-info"><%= current_user.name %></td>
     <td><%= link_to 'Show', blog_address %></td>
     <td><%= link_to 'Edit', edit_blog_address_path(blog_address) %></td>
     <td><%= link_to 'Destroy', blog_address, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -20,6 +20,6 @@
 <% end %>
 </table>
 
-<br />
-
+<br /><div class ="span1 row-fluid" >
 <%= link_to 'New Blog address', new_blog_address_path %>
+</div>

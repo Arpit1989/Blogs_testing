@@ -1,28 +1,28 @@
 
 
-<p>
-  <b>Githubadd:</b>
-  <a href =<%= @github_address.githubadd %> ><%= @github_address.githubadd %> </a>
+<p >
+  <h3 class="text-info">Github Address:</h3>
+  <a href = <%= @github_address.githubadd %>> <%= @github_address.githubadd %> </a>
 </p>
-<h2>Projects</h2>
+<h4 class="text-info">Projects</h4>
 <% @github_address.projects.each do |c| %>
-  <p>
+  <p class="text-error">
     <b>Project:</b>
     <a href = <%= c.projecturl %> ><%= c.projecturl %> </a>
   </p>
  
   <% end %>
 
-<h3>Add a Projects:</h3>
-<%= form_for([@github_address, @github_address.projects.build]) do |f| %>
-  <div class="field">
+<h4 class="text-info">Add a Projects:</h4>
+<%= simple_form_for([@github_address, @github_address.projects.build]) do |f| %>
+  <div class="field text-info">
     <%= f.label :projecturl %><br />
     <%= f.text_field :projecturl %>
   </div>
   
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
+    <%= f.submit :class => "btn-primary",:label => "Add Project" %>
+  
 <% end %>
 
 

@@ -1,25 +1,25 @@
 
-<h3>Users</h3>
+<h3 class ="text-info">Users</h3>
 <div class="span8">
 <table class="table table-condensed">
 	  <thead>
       <tr>
-          <th>Username</th>
-          <th>Email</th>
-          <th>Registered</th>
-          <th>Role</th>
-          <th></th>
-          <th></th>                                      
+          <th class="text-error">Username</th>
+          <th class="text-error">Email</th>
+          <th class="text-error">Registered</th>
+          <th class="text-error">Role</th>
+          <th class="text-error"></th>
+          <th class="text-error"></th>                                      
       </tr>
   </thead>   
   <tbody>
   <% @users.each do |user| %>
     <tr>
-        <td><%= link_to user.name, users_index_path %></td>
-        <td><%= user.email %></td>
-        <td><%= user.created_at.to_date %></td>
-        <td><%= user.roles.first.name.titleize unless user.roles.first.nil? %></td>
-        <td>
+        <td class ="text-info"><%= link_to user.name, users_index_path %></td>
+        <td class ="text-info"><%= user.email %></td>
+        <td class ="text-info"><%= user.created_at.to_date %></td>
+        <td class ="text-info"><%= user.roles.first.name.titleize unless user.roles.first.nil? %></td>
+        <td class ="text-info">
           <a data-toggle="modal" href="#role-options-<%= user.id %>" class="btn btn-mini" type="button">Change role</a>
           <%= render user %>
         </td>
