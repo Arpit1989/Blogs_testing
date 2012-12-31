@@ -1,8 +1,14 @@
 class GithubAddressesController < ApplicationController
   # GET /github_addresses
   # GET /github_addresses.json
+  load_and_authorize_resource
+  skip_authorize_resource :only => :new
+
+  
+  
   def index
     @github_addresses = GithubAddress.all
+    
 
     respond_to do |format|
       format.html # index.html.erb

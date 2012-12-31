@@ -5,6 +5,8 @@
 
   def index
     @users = User.all
+    
+    authorize! :index, @user, :message => 'Not authorized as an administrator.'
   end
 
   def show

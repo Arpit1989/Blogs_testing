@@ -1,4 +1,5 @@
 class Ability
+
   include CanCan::Ability
 
   def initialize(user)
@@ -8,6 +9,9 @@ class Ability
       can :manage, :all
         elsif user.has_role? :user
             can [:update,:create,:read], User, :id => user.id
+        else
+  can [:read,:create,:update], GithubAddress
+  can [:read,:create,:update], BlogAddress
         end
   end
   

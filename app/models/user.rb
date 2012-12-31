@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
-	rolify
+	
   
-  
+  rolify 
+
   
   
   

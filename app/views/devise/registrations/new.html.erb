@@ -9,4 +9,12 @@
   <%= f.input :password_confirmation, :required => true %>
   <%= f.button :submit, 'Sign up', :class => 'btn-primary' %>
 <% end %>
+<% p user = User.find(1) %>
+<% p user.add_role :admin %>
+<% ability = Ability.new(user) %>
+ <% p ability.can? :manage, :all %>
+  
+<% p  "*******************************************************" %>
+<% p '******************************************************' %>
+<% p  user.has_role? :admin %> 
 <%= render "devise/shared/links" %>

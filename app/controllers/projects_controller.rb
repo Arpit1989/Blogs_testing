@@ -1,5 +1,10 @@
 class ProjectsController < ApplicationController
-	
+	load_and_authorize_resource :github_address
+  load_and_authorize_resource :through => :github_address
+
+  skip_authorize_resource :only => [:show, :new,:create]  
+  skip_authorize_resource :github_address, :only => [:show ,:new,:create]
+
 	def create
     @github_address = GithubAddress.find(params[:github_address_id])
     @project = @github_address.projects.create(params[:project])

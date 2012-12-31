@@ -4,8 +4,10 @@ class HomeController < ApplicationController
   @users = User.all
   
   puts "================================================================="
-  puts @users
-  puts @name
+  @users.each do |f| 
+  p f.name	
+  p f.roles
+end
   end
   def show
     @user = User.find(params[:id])
