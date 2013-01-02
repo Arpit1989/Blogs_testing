@@ -11,13 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121226102620) do
+ActiveRecord::Schema.define(:version => 20130102071853) do
 
   create_table "blog_addresses", :force => true do |t|
     t.string   "blogadd"
     t.integer  "User_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "name"
   end
 
   add_index "blog_addresses", ["User_id"], :name => "index_blog_addresses_on_User_id"
@@ -36,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20121226102620) do
     t.integer  "User_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "name"
   end
 
   add_index "github_addresses", ["User_id"], :name => "index_github_addresses_on_User_id"

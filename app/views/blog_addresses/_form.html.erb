@@ -4,7 +4,7 @@
   <div class="form-inputs">
   	
     <%= f.input :blogadd , :label => "Enter Blog Url" ,:placeholder => "https://Someblogs.com" %> 
-    
+    <%=f.input :name, :as => :hidden, :input_html => { :value => "#{current_user.name}" } %>
   </div>
 
   <%= f.button :submit ,:class => "btn-primary" %>

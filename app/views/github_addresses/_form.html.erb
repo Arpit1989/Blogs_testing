@@ -4,12 +4,10 @@
   <div class="form-inputs">
 
     <%= f.input :githubadd , :label => "Enter GitHub Url" ,:placeholder => "https://github/sam1988/dam.git" %>
-   
-  </div>
+   <%=f.input :name, :as => :hidden, :input_html => { :value => "#{current_user.name}" } %>
+   </div>
 
   
     <%= f.button :submit ,:class => "btn-primary" %>
-    
-    
   
 <% end %>

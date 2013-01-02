@@ -11,6 +11,23 @@ class ProjectsController < ApplicationController
     redirect_to github_address_path(@github_address)
     end
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  def index
     @project = Project.all
 

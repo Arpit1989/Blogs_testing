@@ -6,6 +6,7 @@
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "App_Name" %>">
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
+    <script type="text/javascript" src="http://www.google.com/cse/tools/onthefly?form=searchbox_demo&lang="></script>
     <%= csrf_meta_tags %>
     <%= yield(:head) %>
   </head>
@@ -34,9 +35,12 @@
           </br>
           </br>
 <p>Developed By RubyAddicted!!</p>
+
+
           </footer>
         </div>
       </div> <!--! end of .container -->
-    </div> <!--! end of #main -->
+    </div>
+     <!--! end of #main -->
   </body>
 </html>

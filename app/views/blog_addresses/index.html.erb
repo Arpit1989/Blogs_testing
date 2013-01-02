@@ -12,7 +12,7 @@
 <% @blog_addresses.each do |blog_address| %>
   <tr>
     <td><a href = <%= blog_address.blogadd %>><%= blog_address.blogadd.first(30) %></a></td>
-    <td class="text-info"><%= current_user.name %></td>
+    <td class="text-info"><%= blog_address.name %></td>
     <td><%= link_to 'Show', blog_address %></td>
     <td><%= link_to 'Edit', edit_blog_address_path(blog_address) %></td>
     <td><%= link_to 'Destroy', blog_address, method: :delete, data: { confirm: 'Are you sure?' } %></td>

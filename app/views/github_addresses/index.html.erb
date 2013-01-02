@@ -14,7 +14,7 @@
     <td><a href = <%= github_address.githubadd %>><%= github_address.githubadd.first(30) %> </a></td>
     <td class="text-info">
 
-      <%= current_user.name %></td>
+      <%= github_address.name %></td>
     <td><%= link_to 'Show', github_address %></td>
     <td><%= link_to 'Edit', edit_github_address_path(github_address) %></td>
     <td><%= link_to 'Destroy', github_address, method: :delete, data: { confirm: 'Are you sure?' } %></td>

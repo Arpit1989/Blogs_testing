@@ -4,6 +4,8 @@ Personal::Application.routes.draw do
   get "users/index"
 
   get "home/index"
+  
+
 
   authenticated :user do
     root :to => 'home#index'
@@ -12,7 +14,9 @@ Personal::Application.routes.draw do
   devise_for :users
   resources :blog_addresses
   resources :github_addresses do
-    resources :projects
+    resources :projects do 
+      resources :herokuurl
+    end
   end
   
 

@@ -12,18 +12,20 @@
   </p>
  
   <% end %>
+  
 
 <h4 class="text-info">Add a Projects:</h4>
 <%= simple_form_for([@github_address, @github_address.projects.build]) do |f| %>
   <div class="field text-info">
-    <%= f.label :projecturl %><br />
+    
     <%= f.text_field :projecturl %>
   </div>
   
   
-    <%= f.submit :class => "btn-primary",:label => "Add Project" %>
+    <%= f.button :submit,"Add Project", :class => "btn-primary",:label => "Add Project" %>
   
 <% end %>
+
 
 
 

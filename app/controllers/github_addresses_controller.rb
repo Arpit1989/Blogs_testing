@@ -5,7 +5,7 @@ class GithubAddressesController < ApplicationController
   skip_authorize_resource :only => :new
 
   
-  
+
   def index
     @github_addresses = GithubAddress.all
     
@@ -46,8 +46,9 @@ class GithubAddressesController < ApplicationController
   # POST /github_addresses
   # POST /github_addresses.json
   def create
+    p '1111111111111111111111111111111111'
     @github_address = GithubAddress.new(params[:github_address])
-
+    
     respond_to do |format|
       if @github_address.save
         format.html { redirect_to @github_address, notice: 'Github address was successfully created.' }
@@ -65,7 +66,7 @@ class GithubAddressesController < ApplicationController
     @github_address = GithubAddress.find(params[:id])
 
     respond_to do |format|
-      if @github_address.update_attributes(params[:github_address])
+      if @github_address.update_attributes(params[:github_address]) 
         format.html { redirect_to @github_address, notice: 'Github address was successfully updated.' }
         format.json { head :no_content }
       else
