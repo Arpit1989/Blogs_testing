@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: primus
+  api_key: '571171899878727'
+  api_secret: ApE96ruBGDVGJHx79CnHwHzZV20
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: primus
+  api_key: '571171899878727'
+  api_secret: ApE96ruBGDVGJHx79CnHwHzZV20
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: primus
+  api_key: '571171899878727'
+  api_secret: ApE96ruBGDVGJHx79CnHwHzZV20
+  enhance_image_tag: true
+  static_image_support: false

@@ -11,7 +11,7 @@
 
 <% @blog_addresses.each do |blog_address| %>
   <tr>
-    <td><a href = <%= blog_address.blogadd %>><%= blog_address.blogadd.first(30) %></a></td>
+    <td><%=link_to blog_address.blogadd.first(30), blog_address  %></td>
     <td class="text-info"><%= blog_address.name %></td>
     <td><%= link_to 'Show', blog_address %></td>
     <td><%= link_to 'Edit', edit_blog_address_path(blog_address) %></td>

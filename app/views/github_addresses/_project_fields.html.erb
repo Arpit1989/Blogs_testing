@@ -1,0 +1,10 @@
+<fieldset>
+  
+  <%= f.input :projecturl, :label => "Add Project",:placeholder => "https://SomeProject.com" %>
+  <%= f.check_box :_destroy, inline_label: 'Remove Projects' %>
+  <%= f.label :_destroy, "Remove Project" %>
+  <%= f.fields_for :heroku do |builder| %>
+    <%= render 'heroku_fields', f: builder %>
+  <% end %>
+  </p><P class="text-success"><%= link_to_add_field "Click to Add latest Heroku Url", f, :heroku %><p>
+</fieldset>

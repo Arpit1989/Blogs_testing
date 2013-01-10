@@ -1,6 +1,8 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
+  config.reset_password_keys = [ :email ]  #(Defines which key will be used when recovering the password for an account)
+  config.reset_password_within = 6.hours    #(Time interval you can reset your password with a reset password key, should be long duration)
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.

@@ -3,6 +3,19 @@ class BlogAddressesController < ApplicationController
   # GET /blog_addresses.json
   load_and_authorize_resource
   skip_authorize_resource :only => :new 
+  before_filter :get_blog, :only => [:edit,:update,:delete]
+  before_filter :check_auth, :only => [:edit,:update,:delete]
+  def get_blog
+  @blog_address = BlogAddress.find(params[:id])
+  end
+  
+  def check_auth
+   if current_user.id != @blog_address.User_id
+      flash[:notice] ="Sorry Not your blog to edit"
+      redirect_to blog_address_path
+    end
+  end
+  
   def index
     @blog_addresses = BlogAddress.all
 
@@ -16,8 +29,7 @@ class BlogAddressesController < ApplicationController
   # GET /blog_addresses/1.json
   def show
     @blog_address = BlogAddress.find(params[:id])
-
-    respond_to do |format|
+   respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @blog_address }
     end
@@ -36,14 +48,15 @@ class BlogAddressesController < ApplicationController
 
   # GET /blog_addresses/1/edit
   def edit
-    @blog_address = BlogAddress.find(params[:id])
+   
   end
 
   # POST /blog_addresses
   # POST /blog_addresses.json
   def create
+     
     @blog_address = BlogAddress.new(params[:blog_address])
-
+    @blog_address.User_id = current_user.id
     respond_to do |format|
       if @blog_address.save
         format.html { redirect_to @blog_address, notice: 'Blog address was successfully created.' }
@@ -58,9 +71,7 @@ class BlogAddressesController < ApplicationController
   # PUT /blog_addresses/1
   # PUT /blog_addresses/1.json
   def update
-    @blog_address = BlogAddress.find(params[:id])
-
-    respond_to do |format|
+   respond_to do |format|
       if @blog_address.update_attributes(params[:blog_address])
         format.html { redirect_to @blog_address, notice: 'Blog address was successfully updated.' }
         format.json { head :no_content }
@@ -74,7 +85,6 @@ class BlogAddressesController < ApplicationController
   # DELETE /blog_addresses/1
   # DELETE /blog_addresses/1.json
   def destroy
-    @blog_address = BlogAddress.find(params[:id])
     @blog_address.destroy
 
     respond_to do |format|

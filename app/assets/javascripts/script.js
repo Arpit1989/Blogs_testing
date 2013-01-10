@@ -88,3 +88,12 @@ function drawSwEffect() {
         iContr = 0;
     }
 }
+function validFBurl(enteredURL) {
+  var FBurl = /^(http|https)\:\/\/github.com\/.*/i;
+  if(!enteredURL.match(FBurl)) {
+      alert("This is not a Github URL");
+      }
+  else {
+      alert("This IS a Github URL");
+      }
+  }

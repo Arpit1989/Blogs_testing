@@ -8,26 +8,22 @@
 <% @github_address.projects.each do |c| %>
   <p class="text-error">
     <b>Project:</b>
-    <a href = <%= c.projecturl %> ><%= c.projecturl %> </a>
+    <a href = <%= c.projecturl %> ><%= c.projecturl.first(30) %> </a>
   </p>
- 
+  
+    <b class="text-success"> Heroku </b>
+   
+   
+  <% if c.heroku.nil? %>
+   <b class = "text-info"><%= "No Url Present" %></b>
+  <% else %>
+  <a href = <%= c.heroku.herokuurl %>><%= c.heroku.herokuurl.first(30) %></a>
   <% end %>
+
+<br>
+<br>
+ 
+ <% end %>
   
-
-<h4 class="text-info">Add a Projects:</h4>
-<%= simple_form_for([@github_address, @github_address.projects.build]) do |f| %>
-  <div class="field text-info">
-    
-    <%= f.text_field :projecturl %>
-  </div>
-  
-  
-    <%= f.button :submit,"Add Project", :class => "btn-primary",:label => "Add Project" %>
-  
-<% end %>
-
-
-
-
 <%= link_to 'Edit', edit_github_address_path(@github_address) %> |
-<%= link_to 'Back', github_addresses_path %>
+<%= link_to 'Back to Github Address', github_addresses_path %>

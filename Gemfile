@@ -33,6 +33,7 @@ gem "cucumber-rails", :group => :test, :require => false
 gem "database_cleaner", :group => :test
 gem "launchy", :group => :test
 gem "capybara", :group => :test
+gem "guard-rspec", :group => :test
 gem "bootstrap-sass"
 gem "devise"
 gem "factory_girl_rails", ">= 4.1.0", :group => [:development, :test]
@@ -40,6 +41,8 @@ gem "cancan"
 gem "rolify", '3.1'
 gem "simple_form"
 gem "quiet_assets", :group => :development
+gem 'cloudinary'
+gem 'carrierwave'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

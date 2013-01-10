@@ -2,8 +2,8 @@
 
 <table class="table span8 table-hover table-nonfluid table-layout: fixed; table-condensed">
   <tr>
-    <th class="text-error" style="width: 1%">  Github Addresses  </th>
-    <th class="text-error" style="width: 1%">   User </th>
+    <th class="text-error" style="width: 1%"> Github Address</th>
+    <th class="text-error" style="width: 1%"> User </th>
     <th class="text-error" style="width: 1%"></th>
     <th class="text-error" style="width: 1%"></th>
     <th class="text-error" style="width: 1%"></th>
@@ -11,10 +11,8 @@
 
 <% @github_addresses.each do |github_address| %>
   <tr>
-    <td><a href = <%= github_address.githubadd %>><%= github_address.githubadd.first(30) %> </a></td>
-    <td class="text-info">
-
-      <%= github_address.name %></td>
+    <td><%=link_to github_address.githubadd.first(30), github_address  %></td>
+    <td class="text-info"><%= github_address.name %></td>
     <td><%= link_to 'Show', github_address %></td>
     <td><%= link_to 'Edit', edit_github_address_path(github_address) %></td>
     <td><%= link_to 'Destroy', github_address, method: :delete, data: { confirm: 'Are you sure?' } %></td>

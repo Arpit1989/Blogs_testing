@@ -7,7 +7,7 @@
 #   Mayor.create(:name => 'Emanuel', :city => cities.first)
 puts 'CREATING ROLES'
 Role.create([
-  { :name => 'Adminstrator' }, 
+  { :name => 'Admin' }, 
   { :name => 'user' }, 
   { :name => 'VIP' }
 ], :without_protection => true)
