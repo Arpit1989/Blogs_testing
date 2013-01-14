@@ -1,13 +1,6 @@
 Personal::Application.routes.draw do
   
 
-  get "users/index"
-
-  get "home/index"
-  
-
-  get "users/show"
-
   authenticated :user do
     root :to => 'home#index'
   end

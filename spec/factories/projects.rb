@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :project do
-    projecturl "MyString"
+    projecturl "http://www.google.com"
     github_address nil
   end
 end

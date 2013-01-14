@@ -19,12 +19,19 @@ require 'spec_helper'
 # that an instance is receiving a specific message.
 
 describe BlogAddressesController do
+  render_views
+  before (:each) do
+    @user = FactoryGirl.create(:user)
+
+    sign_in @user
+  end
+
 
   # This should return the minimal set of attributes required to create a valid
   # BlogAddress. As you add validations to BlogAddress, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    { "blogadd" => "MyString" }
+    { "blogadd" => "http://www.google.com"}
   end
 
   # This should return the minimal set of values that should be in the session
@@ -37,6 +44,9 @@ describe BlogAddressesController do
   describe "GET index" do
     it "assigns all blog_addresses as @blog_addresses" do
       blog_address = BlogAddress.create! valid_attributes
+      p blog_address
+      p "$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$"
+      p :blog_addresses.to_param
       get :index, {}, valid_session
       assigns(:blog_addresses).should eq([blog_address])
     end
@@ -49,6 +59,7 @@ describe BlogAddressesController do
       assigns(:blog_address).should eq(blog_address)
     end
   end
+
 
   describe "GET new" do
     it "assigns a new blog_address as @blog_address" do

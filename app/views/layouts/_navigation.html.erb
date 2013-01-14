@@ -22,9 +22,10 @@
     
     <% if current_user.has_role? :admin %>
       <li>
-      <%= link_to('Admin', users_index_path) %>
+      <%= link_to('Admin', users_path) %>
       </li>
     <% end %>
+    <li> <%=link_to "Signed in as #{current_user.name}",root_path %></li>
  <% else %>
 
     <li>

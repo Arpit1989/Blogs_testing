@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :blog_address do
-    blogadd "MyString"
+    blogadd "http://www.google.com"
     User nil
   end
 end

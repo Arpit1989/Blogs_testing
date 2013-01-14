@@ -1,6 +1,8 @@
 class BlogAddressesController < ApplicationController
   # GET /blog_addresses
   # GET /blog_addresses.json
+  before_filter :authenticate_user!
+
   load_and_authorize_resource
   skip_authorize_resource :only => :new 
   before_filter :get_blog, :only => [:edit,:update,:delete]

@@ -15,7 +15,7 @@
   <tbody>
   <% @users.each do |user| %>
     <tr>
-        <td class ="text-info"><%= link_to user.name, users_index_path %></td>
+        <td class ="text-info"><%= link_to user.name, users_path %></td>
         <td class ="text-info"><%= user.email %></td>
         <td class ="text-info"><%= user.created_at.to_date %></td>
         <td class ="text-info"><%= user.roles.first.name.titleize unless user.roles.first.nil? %></td>

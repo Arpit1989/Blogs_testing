@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :github_address do
-    githubadd "MyString"
+    githubadd "http://www.google.com"
     User nil
   end
 end

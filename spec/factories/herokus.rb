@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :heroku do
-    herokuurl "MyString"
+    herokuurl "http://www.google.com"
     project nil
   end
 end

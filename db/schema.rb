@@ -23,15 +23,6 @@ ActiveRecord::Schema.define(:version => 20130102071853) do
 
   add_index "blog_addresses", ["User_id"], :name => "index_blog_addresses_on_User_id"
 
-  create_table "comments", :force => true do |t|
-    t.string   "commenter"
-    t.integer  "GithubAddress_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
-
-  add_index "comments", ["GithubAddress_id"], :name => "index_comments_on_GithubAddress_id"
-
   create_table "github_addresses", :force => true do |t|
     t.string   "githubadd"
     t.integer  "User_id"
@@ -62,19 +53,19 @@ ActiveRecord::Schema.define(:version => 20130102071853) do
 
   create_table "projts", :force => true do |t|
     t.string   "title"
-    t.integer  "GithubAddress_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.integer  "github_address_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
-  add_index "projts", ["GithubAddress_id"], :name => "index_projts_on_GithubAddress_id"
+  add_index "projts", ["github_address_id"], :name => "index_projts_on_github_address_id"
 
   create_table "roles", :force => true do |t|
-    t.string   "name"
+    t.string   "name",          :default => "user"
     t.integer  "resource_id"
     t.string   "resource_type"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   add_index "roles", ["name", "resource_type", "resource_id"], :name => "index_roles_on_name_and_resource_type_and_resource_id"

@@ -1,6 +1,8 @@
 class GithubAddressesController < ApplicationController
   # GET /github_addresses
   # GET /github_addresses.json
+  before_filter :authenticate_user!
+
   load_and_authorize_resource
   skip_authorize_resource :only => :new
   before_filter :get_github, :only => [:edit,:update,:delete]

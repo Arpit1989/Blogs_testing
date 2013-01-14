@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9.rc3'
+gem 'rails', '3.2.11'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -24,25 +24,29 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+gem "rspec-rails", :group => [:test, :development]
+group :test do
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
+  gem 'cucumber-rails', :require => false
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem "email_spec"
+end
 gem 'journey'   
 gem 'arel'
 gem 'jquery-rails'
-gem "rspec-rails", :group => [:development, :test]
-gem "email_spec", :group => :test
-gem "cucumber-rails", :group => :test, :require => false
-gem "database_cleaner", :group => :test
 gem "launchy", :group => :test
-gem "capybara", :group => :test
-gem "guard-rspec", :group => :test
 gem "bootstrap-sass"
 gem "devise"
-gem "factory_girl_rails", ">= 4.1.0", :group => [:development, :test]
 gem "cancan"
 gem "rolify", '3.1'
 gem "simple_form"
 gem "quiet_assets", :group => :development
 gem 'cloudinary'
 gem 'carrierwave'
+gem 'rb-inotify', '~> 0.8.8'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

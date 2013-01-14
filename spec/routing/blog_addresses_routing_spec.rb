@@ -1,10 +1,11 @@
 require "spec_helper"
 
+
 describe BlogAddressesController do
   describe "routing" do
 
     it "routes to #index" do
-      get("/blog_addresses").should route_to("blog_addresses#index")
+      {:get => "/blog_addresses"}.should route_to(:controller => "blog_addresses",:action => "index")
     end
 
     it "routes to #new" do
@@ -33,3 +34,4 @@ describe BlogAddressesController do
 
   end
 end
+
